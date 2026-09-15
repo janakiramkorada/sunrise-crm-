@@ -11,6 +11,7 @@ type Lead = {
   phone?: string;
   projectId?: string;
   project?: string;
+  assignedToId?: string;
 };
 
 type Project = {
@@ -189,6 +190,7 @@ export default function SiteVisits() {
       towerId: '',
       unitId: '',
     }));
+
     void loadPropertyOptions(projectId);
   }
 
@@ -221,7 +223,13 @@ export default function SiteVisits() {
   async function saveVisit(event: React.FormEvent) {
     event.preventDefault();
 
-    if (!form.leadId || !form.projectId || !form.assignedToId || !form.visitDate || !form.visitTime) {
+    if (
+      !form.leadId ||
+      !form.projectId ||
+      !form.assignedToId ||
+      !form.visitDate ||
+      !form.visitTime
+    ) {
       setMessage('Please fill Lead, Project, Employee, Date and Time.');
       return;
     }
@@ -341,7 +349,10 @@ export default function SiteVisits() {
               </option>
             ))}
           </select>
-          <button className={styles.secondaryButton} onClick={() => void loadVisits()}>
+          <button
+            className={styles.secondaryButton}
+            onClick={() => void loadVisits()}
+          >
             Refresh
           </button>
         </div>
@@ -403,7 +414,9 @@ export default function SiteVisits() {
                       </td>
                       <td>{visit.assignedToName || '—'}</td>
                       <td>
-                        <span className={`${styles.badge} ${styles[visit.status.toLowerCase()]}`}>
+                        <span
+                          className={`${styles.badge} ${styles[visit.status.toLowerCase()]}`}
+                        >
                           {visit.status.replace('_', ' ')}
                         </span>
                       </td>
@@ -411,7 +424,9 @@ export default function SiteVisits() {
                         <select
                           className={styles.statusSelect}
                           value={visit.status}
-                          onChange={(e) => void updateStatus(visit.id, e.target.value)}
+                          onChange={(e) =>
+                            void updateStatus(visit.id, e.target.value)
+                          }
                         >
                           {statuses.map((status) => (
                             <option key={status} value={status}>
@@ -437,12 +452,20 @@ export default function SiteVisits() {
         </div>
 
         {showModal && (
-          <div className={styles.overlay} onMouseDown={() => setShowModal(false)}>
-            <div className={styles.modal} onMouseDown={(e) => e.stopPropagation()}>
+          <div
+            className={styles.overlay}
+            onMouseDown={() => setShowModal(false)}
+          >
+            <div
+              className={styles.modal}
+              onMouseDown={(e) => e.stopPropagation()}
+            >
               <div className={styles.modalHeader}>
                 <div>
                   <div className={styles.eyebrow}>SITE VISIT</div>
-                  <h2>{editingId ? 'Edit Site Visit' : 'Schedule Site Visit'}</h2>
+                  <h2>
+                    {editingId ? 'Edit Site Visit' : 'Schedule Site Visit'}
+                  </h2>
                 </div>
                 <button
                   className={styles.close}
@@ -464,7 +487,8 @@ export default function SiteVisits() {
                       <option value="">Select customer</option>
                       {leads.map((lead) => (
                         <option key={lead.id} value={lead.id}>
-                          {lead.name}{lead.phone ? ` — ${lead.phone}` : ''}
+                          {lead.name}
+                          {lead.phone ? ` — ${lead.phone}` : ''}
                         </option>
                       ))}
                     </select>
@@ -474,7 +498,9 @@ export default function SiteVisits() {
                     Project *
                     <select
                       value={form.projectId}
-                      onChange={(e) => void handleProjectChange(e.target.value)}
+                      onChange={(e) =>
+                        void handleProjectChange(e.target.value)
+                      }
                     >
                       <option value="">Select project</option>
                       {projects.map((project) => (
@@ -489,7 +515,9 @@ export default function SiteVisits() {
                     Assigned Employee *
                     <select value={form.assignedToId} disabled>
                       <option value="">
-                        {form.leadId ? 'No employee assigned to this lead' : 'Select customer first'}
+                        {form.leadId
+                          ? 'No employee assigned to this lead'
+                          : 'Select customer first'}
                       </option>
                       {users
                         .filter((user) => user.id === form.assignedToId)
@@ -527,7 +555,9 @@ export default function SiteVisits() {
                     Tower
                     <select
                       value={form.towerId}
-                      onChange={(e) => void handleTowerChange(e.target.value)}
+                      onChange={(e) =>
+                        void handleTowerChange(e.target.value)
+                      }
                       disabled={!form.projectId}
                     >
                       <option value="">Select tower</option>
@@ -556,7 +586,9 @@ export default function SiteVisits() {
                         <option key={unit.id} value={unit.id}>
                           {unit.unitNumber || unit.number}
                           {unit.currentPrice != null
-                            ? ` — ₹${Number(unit.currentPrice).toLocaleString('en-IN')}`
+                            ? ` — ₹${Number(unit.currentPrice).toLocaleString(
+                                'en-IN',
+                              )}`
                             : ''}
                         </option>
                       ))}
@@ -627,5 +659,3 @@ export default function SiteVisits() {
     </Shell>
   );
 }
-
-
