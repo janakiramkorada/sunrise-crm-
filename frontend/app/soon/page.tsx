@@ -1,0 +1,1 @@
+import Shell from '@/components/Shell'; export default function Soon(){return <Shell><h1>Coming soon</h1><div className="card">This module belongs to a later CRM phase and has not been implemented yet.</div></Shell>}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320">
+  <defs>
+    <linearGradient id="sun" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffb52e"/>
+      <stop offset="1" stop-color="#ff7a00"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#sun)" stroke-width="12" stroke-linecap="round">
+    <path d="M250 38v25M174 58l13 22M116 108l23 13M326 58l-13 22M384 108l-23 13"/>
+    <path d="M120 177c38-72 74-100 130-100s92 28 130 100"/>
+  </g>
+  <circle cx="250" cy="145" r="75" fill="url(#sun)"/>
+  <g fill="#0b1728">
+    <path d="M183 181v-45l24-18v63z"/>
+    <path d="M213 181V103l28-25v103z"/>
+    <path d="M248 181v-61l28-30v91z"/>
+    <path d="M283 181v-79l28 25v54z"/>
+  </g>
+  <path d="M112 190c47-22 82-28 138-13 54 15 91 12 138-10-32 43-77 58-138 38-59-20-103-15-138 5z" fill="url(#sun)"/>
+  <text x="250" y="254" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="57" font-weight="900" letter-spacing="3" fill="#07101d">SUNRISE</text>
+  <path d="M128 273h70M302 273h70" stroke="#ff941f" stroke-width="5"/>
+  <text x="250" y="285" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="7" fill="#aeb9c8">BUILDER CRM</text>
+</svg>
