@@ -746,7 +746,8 @@ class SecurityConfig {
 
         c.setAllowedOriginPatterns(List.of(
                 "http://localhost:3000",
-                "http://127.0.0.1:3000"
+                "http://127.0.0.1:3000",
+                "https://sunrise-crm-one.vercel.app"
         ));
 
         c.setAllowedMethods(List.of(
@@ -1680,5 +1681,7 @@ class HealthController {
                 "UP");
     }
 }
+
+
 
 
