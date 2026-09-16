@@ -11,6 +11,7 @@ const nav = [
   { href: '/inventory', label: 'Inventory', icon: '\u25C9' },
   { href: '/employees', label: 'Employees', icon: '\u2659' },
   { href: '/leads', label: 'Leads', icon: '\u2197' },
+  { href: '/follow-ups', label: 'Follow-ups', icon: '\u21BB' },
   { href: '/site-visits', label: 'Site Visits', icon: '\u25F7' },
   { href: '/reports', label: 'Reports', icon: '\u25A4' },
 ];
@@ -129,13 +130,15 @@ export default function Shell({
                     ? 'Employees'
                     : pathname.startsWith('/leads')
                       ? 'Leads'
-                      : pathname.startsWith('/site-visits')
-                        ? 'Site Visits'
-                        : pathname.startsWith('/reports')
-                          ? 'Reports'
-                          : pathname.startsWith('/projects')
-                            ? 'Projects'
-                            : 'Workspace'}
+                      : pathname.startsWith('/follow-ups')
+                        ? 'Follow-ups'
+                        : pathname.startsWith('/site-visits')
+                          ? 'Site Visits'
+                          : pathname.startsWith('/reports')
+                            ? 'Reports'
+                            : pathname.startsWith('/projects')
+                              ? 'Projects'
+                              : 'Workspace'}
             </h1>
           </div>
 
